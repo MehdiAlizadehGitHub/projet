@@ -1,0 +1,14 @@
+# Utiliser l'image Nginx
+FROM nginx:alpine
+
+# Copier les fichiers construits par Vite (dist) dans le dossier Nginx
+COPY ./dist /usr/share/nginx/html
+
+# Ajouter la configuration personnalisée pour Nginx
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+# Exposer le port 80 pour servir l'application
+EXPOSE 80
+
+# Lancer Nginx
+CMD ["nginx", "-g", "daemon off;"]
