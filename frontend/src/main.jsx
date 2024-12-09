@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
+import AppMenu from './AppMenu'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppMenu />
   </React.StrictMode>,
   document.getElementById('root')
 )

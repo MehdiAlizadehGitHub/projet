@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Navigate to the frontend directory
+cd ./frontend
+
+# Install npm dependencies and build the project
+npm install
+npm run build
+
+# Navigate back to the original directory
+cd ..
+
 # Stop and remove containers, networks, volumes, and images created by docker-compose
 docker-compose down
 

@@ -1,0 +1,70 @@
+.AppMenu {
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 85, 1) 35%, rgba(0, 212, 255, 1) 100%);
+	/* Green gradient */
+	min-height: 100vh;
+	/* Ensure it covers the full viewport height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.backgroundTitle {
+	background-image: url('./images/logo/BackgroundTitle.png');
+	/* Update with the correct path to your image */
+	background-size: cover;
+	/* Adjust as needed */
+	background-position: center;
+	/* Adjust as needed */
+	padding: 10px;
+	/* Adjust padding as needed */
+	border-radius: 5px;
+	/* Optional: for rounded corners */
+	text-align: center;
+	/* Optional: to center the text */
+	color: white;
+	/* Adjust text color for better readability */
+}
+
+.centeredTitle {
+	display: flex;
+	justify-content: center;
+	/* Center horizontally */
+	align-items: center;
+	/* Center vertically */
+	text-align: center;
+	/* Ensure text is centered */
+	height: 100%;
+	/* Ensure it takes full height of the container */
+}
+
+.register-button {
+	background-color: #4CAF50;
+	/* Green background */
+	border: none;
+	/* Remove border */
+	color: white;
+	/* White text */
+	padding: 15px 32px;
+	/* Padding */
+	text-align: center;
+	/* Center text */
+	text-decoration: none;
+	/* Remove underline */
+	display: inline-block;
+	/* Inline-block display */
+	font-size: 16px;
+	/* Font size */
+	margin: 4px 2px;
+	/* Margin */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	border-radius: 12px;
+	/* Rounded corners */
+	transition: background-color 0.3s ease;
+	/* Smooth transition */
+}
+
+.register-button:hover {
+	background-color: #45a049;
+	/* Darker green on hover */
+}
