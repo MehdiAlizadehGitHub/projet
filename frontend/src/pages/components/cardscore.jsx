@@ -11,6 +11,10 @@ const Card = (props) => {
 		setOpen(true)
 	}
 
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	return (
 		<>
 			<FormDialog open={open} setOpen={setOpen} id={props.id} title={props.title} rating={props.rating} genre={props.genre} />

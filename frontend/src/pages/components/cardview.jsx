@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./card.css"
 import FormDialog from "./dialog/dialog";
-import axios from "axios";
 
 
 const CardView = (props) => {
 	const [open, setOpen] = React.useState(false);
+
+	const cardOpen = () => {
+        setOpen(true);
+    };
 
 	return (
 		<>

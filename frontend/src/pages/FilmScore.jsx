@@ -11,16 +11,17 @@ function FilmScore() {
 
 	const [movies, setMovies] = useState([]);
 
+
+	const handleBackToMenu = () => {
+		navigate('/');
+	};
+
 	useEffect(() => {
 		Axios.get(`${baseUrl}/movies`)
 			.then((response) => {
 				setMovies(response.data);
 			});
-	}, []);
-
-	const handleBackToMenu = () => {
-		navigate('/');
-	};
+	});
 
 	return (
 		<div className="App">

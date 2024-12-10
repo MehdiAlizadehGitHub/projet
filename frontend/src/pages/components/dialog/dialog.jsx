@@ -11,9 +11,9 @@ import axios from "axios";
 export default function FormDialog(props) {
     const [editValues, setEditValues] = useState({
         id: props.id,
-        name: props.name,
-        cost: props.cost,
-        category: props.category,
+        title: props.title,
+        rating: props.rating,
+        genre: props.genre,
     });
 
 
@@ -21,9 +21,9 @@ export default function FormDialog(props) {
         console.log(props.baseUrl)
         axios.put(`http:/api/edit`, {
             id: editValues.id,
-            name: editValues.name,
-            cost: editValues.cost,
-            category: editValues.category,
+            title: editValues.title,
+            rating: editValues.rating,
+            genre: editValues.genre,
         });
         handleClose();
 
@@ -58,9 +58,9 @@ export default function FormDialog(props) {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="name"
+                        id="title"
                         label="Title"
-                        defaultValue={props.name}
+                        defaultValue={props.title}
                         type="text"
                         onChange={handleChangeValues}
                         fullWidth
@@ -69,9 +69,9 @@ export default function FormDialog(props) {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="cost"
-                        label="Cost"
-                        defaultValue={props.cost}
+                        id="rating"
+                        label="Rating"
+                        defaultValue={props.rating}
                         type="text"
                         onChange={handleChangeValues}
                         fullWidth
@@ -80,9 +80,9 @@ export default function FormDialog(props) {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="category"
-                        label="Category"
-                        defaultValue={props.category}
+                        id="genre"
+                        label="Genre"
+                        defaultValue={props.genre}
                         type="text"
                         onChange={handleChangeValues}
                         fullWidth

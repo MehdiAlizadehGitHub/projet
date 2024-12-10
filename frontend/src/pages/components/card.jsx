@@ -5,18 +5,23 @@ import axios from "axios";
 
 
 const Card = (props) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const cardOpen = () => {
-        setOpen(true)
-    }
+        setOpen(true);
+    };
+
     const handleClose = () => {
         setOpen(false);
     };
 
-    const handleDeleteGame = () => {
-        axios.delete(`http:/api/delete/${props.id}`);
-    }
+
+    const handleDeleteMovie = () => {
+        axios.delete(`http:/api/delete/${props.id}`)
+            .then(() => {
+                props.onDelete(props.id); // Appeler la fonction de suppression du parent
+            });
+    };
 
     return (
         <>
@@ -29,7 +34,7 @@ const Card = (props) => {
                 </div>
                 <div className="actions">
                     <button className="edit" onClick={cardOpen}>Edit</button>
-                    <button className="delete" onClick={handleDeleteGame}>Delete</button>
+                    <button className="delete" onClick={handleDeleteMovie}>Delete</button>
                 </div>
             </div>
         </>
