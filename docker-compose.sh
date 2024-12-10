@@ -5,6 +5,7 @@ cd ./frontend
 
 # Install npm dependencies and build the project
 npm install
+npm install react-router-dom@6.3.0
 npm run build
 
 # Navigate back to the original directory

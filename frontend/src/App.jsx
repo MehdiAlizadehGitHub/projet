@@ -1,72 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
-import Axios from "axios";
-import Card from "./components/card";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './App.css';
 
 function App() {
+  const navigate = useNavigate();
 
-    const baseUrl = "/api"
-    console.log(baseUrl)
+  const handleClickFilm = () => {
+    navigate('/film-list'); // Navigate to FilmList
+  };
+  const handleClickModify = () => {
+    navigate('/film-modify'); // Navigate to FilmModify
+  };
+  const handleClickScore = () => {
+    navigate('/film-score'); // Navigate to FilmScore
+  };
 
-    const [values, setValues] = useState();
-    const [games, setGames] = useState();
-
-    const handleChangeValues = (value) => {
-        setValues((prevValue) => ({
-            ...prevValue,
-            [value.target.name]: value.target.value,
-        }))
-    }
-
-    const handleClickButton = () => {
-        Axios.post(`${baseUrl}/register`, {
-            name: values.name,
-            cost: values.cost,
-            category: values.category,
-        }).then((response) => {
-            console.log(response)
-        });
-    }
-
-    useEffect(() => {
-        Axios.get(`${baseUrl}/games`)
-            .then((response) => {
-                setGames(response.data)
-            })
-    }
-    )
-
-
-
-    return (
-        <div className="App">
-            <div className="container">
-                <h1 className="title">Game Shop</h1>
-                <h3>Add a Game</h3>
-                <div className="register-box">
-                    <input className="register-input" type="text" name="name" placeholder="Title" onChange={handleChangeValues} />
-                    <input className="register-input" type="text" name="cost" placeholder="Cost" onChange={handleChangeValues} />
-                    <input className="register-input" type="text" name="category" placeholder="Category" onChange={handleChangeValues} />
-                    <button className="register-button" onClick={handleClickButton}>Add</button>
-                </div>
-                <br />
-                <div className="cards">
-                    {typeof games !== 'undefined' &&
-                        games.map((game) => {
-                            return <Card
-                                key={game.idgames}
-                                id={game.idgames}
-                                name={game.name}
-                                cost={game.cost}
-                                category={game.category}
-
-                            >
-                            </Card>;
-                        })}
-                </div>
-            </div>
+  return (
+    <div className="App">
+      <div className="container">
+        <h1 className="backgroundTitle">Welcome</h1>
+        <h3 className='centeredTitle'>To Your Movie List</h3>
+        <div className="register-box">
+          <button className="register-button" onClick={handleClickFilm}>Film List</button>
+          <button className="register-button" onClick={handleClickModify}>Add/Edit List</button>
+          <button className="register-button" onClick={handleClickScore}>Film Score</button>
         </div>
-    )
+        <br />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

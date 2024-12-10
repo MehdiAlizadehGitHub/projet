@@ -1,42 +1,61 @@
-*{
-  margin: 0px;
-  padding: 0px;
-}
-body{
-  font-family: Montserrat, sans-serif;
-}
-.container{
-  margin-inline: auto;
-  margin-inline-start: 80px;
-  margin-inline-end: 80px;
-}
-.title {
-  margin-top: 20px;
+.App {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 85, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.register-box{
-  margin-top: 20px;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px,1fr));
+.container {
+    display: flex;
+    flex-direction: column; /* Empile les éléments les uns sur les autres */
+    align-items: center;
+    width: 100%;
 }
 
-.register-input, .register-button{
-  margin-top: 5px;
-  margin-right: 5px;
-  padding-inline: 5px;
-
-  border-style: solid;
-  border-radius: 8px;
+.backgroundTitle {
+    background-image: url('./images/logo/BackgroundTitle.png');
+    background-size: cover;
+    background-position: center;
+    padding: 60px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 66px;
+    text-align: center;
+    color: white;
 }
 
-.register-input{
-  height: 30px;
+.centeredTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    height: 100%;
 }
 
-.register-button{
-  height: 35px;
-  width: 100px;
+.register-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Espace entre les boutons */
 }
 
+.register-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 35px 52px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    margin: 14px 12px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
 
+.register-button:hover {
+    background-color: #45a049;
+}
