@@ -5,10 +5,17 @@
 
     margin-bottom: 10px;
     padding: 10px;
+    background-color: #b3b3b3d6;
 
     border-style: solid;
     border-radius: 8px;
     border-width: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.game-card:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
 }
 
 .actions button {
