@@ -14,12 +14,12 @@ server.use(express.json());
 server.use(cors());
 
 server.post("/register", (req, res) => {
-    const { name } = req.body;
-    const { cost } = req.body;
-    const { category } = req.body;
+    const { title } = req.body;
+    const { rating } = req.body;
+    const { genre } = req.body;
 
-    let sql = "INSERT INTO games (name, cost, category) VALUES (?,?,?)"
-    db.query(sql, [name, cost, category], (err, result) => {
+    let sql = "INSERT INTO movies (title, rating, genre) VALUES (?,?,?)"
+    db.query(sql, [title, rating, genre], (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -28,9 +28,9 @@ server.post("/register", (req, res) => {
     })
 });
 
-server.get("/games", (req, res) => {
+server.get("/movies", (req, res) => {
 
-    let sql = "SELECT * FROM games";
+    let sql = "SELECT * FROM movies";
     db.query(sql, (err, result) => {
         if (err) {
             console.log(err);
@@ -43,12 +43,12 @@ server.get("/games", (req, res) => {
 
 server.put("/edit", (req, res) => {
     const { id } = req.body;
-    const { name } = req.body;
-    const { cost } = req.body;
-    const { category } = req.body;
+    const { title } = req.body;
+    const { rating } = req.body;
+    const { genre } = req.body;
 
-    let sql = "UPDATE games SET name = ?, cost = ?, category = ? WHERE idgames = ?";
-    db.query(sql, [name, cost, category, id], (err, result) => {
+    let sql = "UPDATE movies SET title = ?, rating = ?, genre = ? WHERE idmovies = ?";
+    db.query(sql, [title, rating, genre, id], (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -61,7 +61,7 @@ server.put("/edit", (req, res) => {
 server.delete("/delete/:index", (req, res) => {
     const { index } = req.params
 
-    let sql = "DELETE FROM games WHERE idgames = ?"
+    let sql = "DELETE FROM movies WHERE idmovies = ?"
     db.query(sql, [index], (err, result) => { err ? console.log(err) : res.send(result) })
 })
 

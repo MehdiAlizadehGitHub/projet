@@ -6,44 +6,44 @@ import '../App.css';
 import './css/Film.css';
 
 function FilmList() {
-  const baseUrl = "/api";
-  const navigate = useNavigate();
+	const baseUrl = "/api";
+	const navigate = useNavigate();
 
-  const [games, setGames] = useState([]);
+	const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    Axios.get(`${baseUrl}/games`)
-      .then((response) => {
-        setGames(response.data);
-      });
-  }, []);
+	useEffect(() => {
+		Axios.get(`${baseUrl}/movies`)
+			.then((response) => {
+				setMovies(response.data);
+			});
+	}, []);
 
-  const handleBackToMenu = () => {
-    navigate('/');
-  };
+	const handleBackToMenu = () => {
+		navigate('/');
+	};
 
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="header">
-          <h1 className="pageTitle">Your List</h1>
-          <button className="backButton" onClick={handleBackToMenu}>Back to Menu</button>
-        </div>
-        <div className="cards">
-          {games.map((game) => (
-            <CardView
-              key={game.idgames}
-              id={game.idgames}
-              name={game.name}
-              cost={game.cost}
-              category={game.category}
-              className="card"
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="App">
+			<div className="container">
+				<div className="header">
+					<h1 className="pageTitle">Your List</h1>
+					<button className="backButton" onClick={handleBackToMenu}>Back to Menu</button>
+				</div>
+				<div className="cards">
+					{movies.map((movie) => (
+						<CardView
+							key={movie.idmovies}
+							id={movie.idmovies}
+							title={movie.title}
+							rating={movie.rating}
+							genre={movie.genre}
+							className="card"
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default FilmList;

@@ -9,12 +9,12 @@ function FilmScore() {
 	const baseUrl = "/api";
 	const navigate = useNavigate();
 
-	const [games, setGames] = useState([]);
+	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
-		Axios.get(`${baseUrl}/games`)
+		Axios.get(`${baseUrl}/movies`)
 			.then((response) => {
-				setGames(response.data);
+				setMovies(response.data);
 			});
 	}, []);
 
@@ -30,13 +30,13 @@ function FilmScore() {
 					<button className="backButton" onClick={handleBackToMenu}>Back to Menu</button>
 				</div>
 				<div className="cards">
-					{games.map((game) => (
+					{movies.map((movie) => (
 						<Card
-							key={game.idgames}
-							id={game.idgames}
-							name={game.name}
-							cost={game.cost}
-							category={game.category}
+							key={movie.idmovies}
+							id={movie.idmovies}
+							title={movie.title}
+							rating={movie.rating}
+							genre={movie.genre}
 							className="card"
 						/>
 					))}

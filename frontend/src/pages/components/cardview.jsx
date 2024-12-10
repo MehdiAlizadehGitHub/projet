@@ -5,20 +5,20 @@ import axios from "axios";
 
 
 const CardView = (props) => {
-    const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false);
 
-    return (
-        <>
-            <FormDialog open={open} setOpen={setOpen} id={props.id} name={props.name} cost={props.cost} category={props.category} />
-            <div className="game-card">
-                <div className="info">
-                    <h4>{props.name}</h4>
-                    <p>${props.cost}</p>
-                    <p>{props.category}</p>
-                </div>
-            </div>
-        </>
-    );
+	return (
+		<>
+			<FormDialog open={open} setOpen={setOpen} id={props.id} title={props.title} rating={props.rating} genre={props.genre} />
+			<div className="game-card">
+				<div className="info">
+					<h4>{props.title}</h4>
+					<p>{props.rating}/10</p>
+					<p>{props.genre}</p>
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default CardView;
