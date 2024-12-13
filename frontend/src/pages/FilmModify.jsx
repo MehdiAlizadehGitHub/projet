@@ -4,20 +4,13 @@ import Axios from "axios";
 import Card from "./components/card";
 import '../App.css';
 import './css/Film.css';
+import logo from '../images/logo/1.svg';
 
 function FilmModify() {
 	const baseUrl = "/api";
 	const navigate = useNavigate();
 
-	const [values, setValues] = useState();
 	const [movies, setMovies] = useState([]);
-
-	const handleChangeValues = (value) => {
-		setValues((prevValue) => ({
-			...prevValue,
-			[value.target.name]: value.target.value,
-		}))
-	}
 
 	const handleBackToMenu = () => {
 		navigate('/');
@@ -36,37 +29,45 @@ function FilmModify() {
 			.then((response) => {
 				setMovies(response.data);
 			});
-	});
+	}, []);
 
 	const handleDeleteMovie = (id) => {
 		setMovies((prevMovies) => prevMovies.filter((movie) => movie.idmovies !== id));
 	};
+
 	return (
 		<div className="App">
-			<div className="container">
-				<div className="header">
-					<h1 className="pageTitle">Modify Your List</h1>
-					<button className="backButton" onClick={handleBackToMenu}>Back to Menu</button>
+			{/* Menu de navigation */}
+			<div className="navbar">
+				<div className="navbar-logo" onClick={handleBackToMenu}>
+					<img src={logo} alt="Film List Logo" />
 				</div>
+				<div className="navbar-item">
+					<h2 onClick={() => navigate('/film-list')}>Film List</h2>
+					<h2 onClick={() => navigate('/film-modify')}>Add/Edit</h2>
+					<h2 onClick={() => navigate('/film-score')}>Score</h2>
+				</div>
+			</div>
+
+			{/* Contenu principal */}
+			<div className="container">
 				<div className="cards">
-					{typeof movies !== 'undefined' &&
-						movies.map((movie) => (
-							<Card
-								key={movie.idmovies}
-								id={movie.idmovies}
-								title={movie.title}
-								rating={movie.rating}
-								genre={movie.genre}
-								onUpdate={handleUpdateMovie}
-								onDelete={handleDeleteMovie}
-								className="card"
-							/>
-						))}
+					{movies.map((movie) => (
+						<Card
+							key={movie.idmovies}
+							id={movie.idmovies}
+							title={movie.title}
+							rating={movie.rating}
+							genre={movie.genre}
+							onUpdate={handleUpdateMovie}
+							onDelete={handleDeleteMovie}
+							className="card"
+						/>
+					))}
 				</div>
 			</div>
 		</div>
 	);
 }
-
 
 export default FilmModify;
