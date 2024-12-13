@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    flex-direction: column;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #b3b3b3d6;
+    background-color: #fefdec !important;
 
     border-style: solid;
     border-radius: 8px;
@@ -29,11 +29,16 @@
 }
 
 .edit {
-    background-color: deepskyblue;
+    background-color: #ffa500;
     color: white;
 }
 
 .delete {
-    background-color: crimson;
+    background-color: #e33256;
     color: white;
+}
+
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation24.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.css-uhb5lp{
+    border-radius: 15px !important;
 }
