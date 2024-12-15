@@ -6,6 +6,7 @@
 ## BETTAYEB Serine - TD48
 ## BRUN Clement - TD47
 
+le projet est sur la branch eprincipale : /main
 
 # How to lauch the project :
 ## backend
